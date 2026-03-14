@@ -89,7 +89,6 @@ local blood_original_values = {
     hgibs = nil
 };
 
--- 存储子元素引用的变量
 local visualize_exploits_color_picker = nil;
 local visualize_exploits_thickness_slider = nil;
 local keep_transparency_scale_slider = nil;
@@ -660,8 +659,7 @@ local v1 = new_class():struct("references")({
             visuals = pui.create("\v\239\138\189", "Visuals"),
             world = pui.create("\v\239\138\189", "World")
         };
-        v2.elements = {
-            warning = v2.groups.main:label("\a[warn]\239\129\177   \rthis project is completely paste"), 
+        v2.elements = { 
             about = v2.groups.main:list("", "info", "features", "visuals", "world"), 
             author_github = v2.groups.info:label("\v\226\128\162    \a{Small Text}github: @Shenwang2333"), 
             author_bilibili = v2.groups.info:label("    \v\226\164\183  \a{Small Text}Author: @Shenwang2333"), 
@@ -749,7 +747,6 @@ local v1 = new_class():struct("references")({
             [1] = v2.elements.about
         });
 
-        -- 声明变量
         super_toss = v2.elements.super_toss;
         no_fall_damage = v2.elements.no_fall_damage;
         fast_ladder = v2.elements.fast_ladder;
@@ -758,7 +755,6 @@ local v1 = new_class():struct("references")({
         keep_model_transparency = v2.elements.keep_model_transparency;
         no_blood = v2.elements.no_blood;
 
-        -- 功能回调
         v2.elements.super_toss:set_callback(function()
             super_toss_enabled(v2.elements.super_toss:get());
         end);
@@ -779,7 +775,6 @@ local v1 = new_class():struct("references")({
             local state = v2.elements.visualize_exploits:get();
             visualize_exploits_enabled(state);
             if state then
-                -- 使用保存的引用而不是 get_children()
                 if visualize_exploits_color_picker then
                     visualize_exploits_enabled(nil, visualize_exploits_color_picker:get());
                 end;
